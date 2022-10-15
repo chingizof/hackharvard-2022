@@ -42,4 +42,11 @@ export const updateRank = async (profID, value) => {
 	})
 }
 
+export const getAllProfiles = async () => {
+  let profileRef = doc(db, 'profiles', "Profiles")
+  const profileSnap = await getDoc(profileRef)
+  console.log(profileSnap.data())
+  return profileSnap.data()
+}
+
 export default {db, app}

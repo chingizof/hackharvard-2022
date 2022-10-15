@@ -12,7 +12,10 @@ export const Compare =  () => {
     const [link1, setLink1] = useState()
     const [link2, setLink2] = useState()
 
-    let generatePhotos = async (rand1, rand2) => {
+    let generatePhotos = async () => {
+        setRand1((Math.floor(1+Math.random()*5)))
+        setRand2((Math.floor(1+Math.random()*5)))
+
         let url1 = await reqPicture("P"+rand1)
         let url2 = await reqPicture("P"+rand2)
 
@@ -21,10 +24,11 @@ export const Compare =  () => {
     }
 
     useEffect(() => {
-        generatePhotos(rand1, rand2)
+        generatePhotos()
     },[])
 
     const imageWin = async (winnerId, loserId) => {
+        await generatePhotos()
         await updateRank("P"+winnerId, 1)
         await updateRank("P"+loserId, -1)
     }
