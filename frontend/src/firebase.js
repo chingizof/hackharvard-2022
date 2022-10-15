@@ -22,9 +22,3 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 const profilesCollection = collection(db, "profiles")
 
-
-export const reqPicture = async (index) => { //generate random number on frontend, use function for 2 times
-  let profileRef = doc(db, "profiles", index)
-  const docSnap = await getDoc(profileRef);
-  return docSnap.data
-}

@@ -1,18 +1,21 @@
 import "./compare.css";
 import { Header } from "../../components/header";
+import { useState } from "react";
 import "axios"
 import { reqPicture } from "../../firebase";
 
-export const Compare = () => {
+export const Compare = async () => {
     let rand1 = 1+ Math.random()*2
     let rand2 = 1+ Math.random()*2
 
-    let link1 = reqPicture("P" + rand1)
-    let link2 = reqPicture("P" + rand2)
+    // let link1 = reqPicture("P" + rand1)
+    const [link1, setLink1] = useState()
+    const [link2, setLink2] = useState()
+    // let link2 = await reqPicture()
 
-    console.log(link1, link2)
+    console.log(link2)
 
-    const imageWin = () => {
+    const imageWin = (winner, loser) => {
 
     }
     
