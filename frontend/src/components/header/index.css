@@ -1,7 +1,7 @@
 .header-wrapper {
     height: auto;
     width: 100vw;
-    height: 5vh;
+    height: 8vh;
     /* background-color: #f1f1f1; */
     overflow: hidden;
     border-bottom: 1px solid rgb(192, 193, 195);
@@ -14,4 +14,7 @@
     font-size: 36px;
     font-weight: 600;
     color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

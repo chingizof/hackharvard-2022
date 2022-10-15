@@ -18,7 +18,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig, );
 const db = getFirestore(app)
 const profilesCollection = collection(db, "profiles")
 
@@ -28,6 +28,5 @@ export const reqPicture = async (profileId) => { //generate random number on fro
   const docSnap = await getDoc(profileRef)
 
   console.log(docSnap.data())
-
   return docSnap.data()
 }
