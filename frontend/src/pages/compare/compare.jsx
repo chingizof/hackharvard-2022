@@ -25,8 +25,8 @@ export const Compare =  () => {
     },[])
 
     const imageWin = async (winnerId, loserId) => {
-        await updateRank("P"+winnerId, -1)
-        await updateRank("P"+loserId, +1)
+        await updateRank("P"+winnerId, 1)
+        await updateRank("P"+loserId, -1)
     }
     
   return (
