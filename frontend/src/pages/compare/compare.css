@@ -1,9 +1,18 @@
 .text-holder {
     height:80px;
     width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.images-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    align-items: center;
 }
 
 img {
-    height: 100px;
-    width: 150px;
+    height: 300px;
+    width: 400px;
 }
