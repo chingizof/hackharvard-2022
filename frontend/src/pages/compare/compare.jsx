@@ -1,7 +1,21 @@
 import "./compare.css";
 import { Header } from "../../components/header";
+import "axios"
+import { reqPicture } from "../../firebase";
 
 export const Compare = () => {
+    let rand1 = 1+ Math.random()*2
+    let rand2 = 1+ Math.random()*2
+
+    let link1 = reqPicture("P" + rand1)
+    let link2 = reqPicture("P" + rand2)
+
+    console.log(link1, link2)
+
+    const imageWin = () => {
+
+    }
+    
   return (
     <div className="compare-wrapper">
       <Header />
