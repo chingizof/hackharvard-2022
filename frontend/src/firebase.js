@@ -38,7 +38,7 @@ export const updateRank = async (profID, value) => {
 
 	
 	await updateDoc(profileRef, {
-		ranking: increment(value)
+		ranking: increment(value) //hello
 	})
 }
 
