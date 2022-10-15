@@ -6,25 +6,7 @@ export const Header = () => {
         <nav>
             <div className='header-wrapper'>
                 <div className='header-content'>
-                    <Link to="/">
-                        <div className='logo'>
-                        </div>
-                    </Link>
-                    <div>
-                        <Link to="/find-games">
-                            Find New Game
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/leaderboard">
-                            Leaderboards
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/whysolve">
-                            Why Solve Math?
-                        </Link>
-                    </div>
+                    Avatarmash
                 </div>
             </div>
         </nav>
