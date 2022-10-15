@@ -2,7 +2,7 @@ import "./compare.css";
 import { Header } from "../../components/header";
 import { useEffect, useState } from "react";
 import { reqPicture } from "../../firebase";
-import updateRank from "../../firebase";
+import { updateRank } from "../../firebase";
 
 
 export const Compare =  () => {
