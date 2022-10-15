@@ -2,13 +2,12 @@ import "./compare.css";
 import { Header } from "../../components/header";
 import { useEffect, useState } from "react";
 import { reqPicture } from "../../firebase";
+import updateRank from "../../firebase";
+
 
 export const Compare =  () => {
-    let rand1 = Math.floor(1+Math.random()*5)
-    let rand2 = Math.floor(1+Math.random()*5)
-
-    console.log("first", rand1)
-    console.log("second", rand2)
+    const [rand1, setRand1] = useState(Math.floor(1+Math.random()*5))
+    const [rand2, setRand2] = useState(Math.floor(1+Math.random()*5))
 
     const [link1, setLink1] = useState()
     const [link2, setLink2] = useState()
@@ -25,11 +24,10 @@ export const Compare =  () => {
         generatePhotos(rand1, rand2)
     },[])
 
-    console.log(link2)
-
-    // const imageWin = (winner, loser) => {
-
-    // }
+    const imageWin = async (winnerId, loserId) => {
+        await updateRank("P"+winnerId, -1)
+        await updateRank("P"+loserId, +1)
+    }
     
   return (
     <div className="compare-wrapper">
@@ -41,12 +39,14 @@ export const Compare =  () => {
             className="photo1"
             alt="photo1"
             src={link1}
+            onClick={() => imageWin(rand1, rand2)}
           />
 
           <span>OR</span>
           <img
             alt="photo2"
             src={link2}
+            onClick={() => imageWin(rand2, rand1)}
           />
         </div>
       </div>

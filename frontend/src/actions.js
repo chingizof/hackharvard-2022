@@ -1,9 +1,10 @@
-const db = require('./firebase')
-const profiles = require('./firebase')
+import db from "./firebase.js"
+
+
 // db = require('firebase')
 //import { getDoc, getFirestore, increment, query, getDocs, collection, where, addDoc, doc, onSnapshot, setDoc, updateDoc, arrayUnion, arrayRemove }  from "firebase/firestore";
 
-const {increment, doc, setDoc, updateDoc} = require("firebase/firestore")
+const {increment, decrement, doc, setDoc, updateDoc} = require("firebase/firestore")
 const createAvatar = async(fullname, imageUri) => {
 	var profile = doc(db, "profiles");
 
@@ -17,22 +18,21 @@ const createAvatar = async(fullname, imageUri) => {
 }
 
 
-const updateRank = async(profID, operation ) => {
-	let profile = doc(db, "profiles", profID)
-	if(operation=="increase"){
-		await updateDoc(profile, {
+const updateRank = async(profID, operation) => {
+	console.log(profId)
+	let profileRef = doc(db, "profiles", profID)
+	console.log("hi", operation)
+	if(operation == "increase") {
+		await updateDoc(profileRef, {
 			ranking: increment(1)
-		});
-	}
-	else if(operation == "decrease"){
-		await updateDoc(profile, {
-			ranking:decrement(-1)
+		})
+	} else {
+		await updateDoc(profileRef, {
+			ranking: increment(-1)
 		})
 	}
 }
 
-let profA = doc(db, "profiles", "P1")
-updateRank(profA.id, "increase")
 
 
 export {createAvatar, updateRank}

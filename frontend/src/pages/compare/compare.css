@@ -28,6 +28,7 @@ img {
 	height: 200px;
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
+    border: 1px solid papayawhip;
 }
 
 img:hover{

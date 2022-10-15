@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc, getDoc, doc } from "firebase/firestore"; 
+import {increment, decrement, setDoc, updateDoc} from "firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig, );
 const db = getFirestore(app)
-const profilesCollection = collection(db, "profiles")
+// const profilesCollection = collection(db, "profiles")
 
 
 export const reqPicture = async (profileId) => { //generate random number on frontend, use function for 2 times
@@ -30,3 +31,15 @@ export const reqPicture = async (profileId) => { //generate random number on fro
   console.log(docSnap.data())
   return docSnap.data()
 }
+
+export const updateRank = async (profID, value) => {
+	console.log(profID)
+	let profileRef = doc(db, "profiles", profID)
+
+	
+	await updateDoc(profileRef, {
+		ranking: increment(value)
+	})
+}
+
+export default {db, app}
