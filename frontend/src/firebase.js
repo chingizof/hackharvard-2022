@@ -2,8 +2,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc, getDoc, doc } from "firebase/firestore"; 
-import { getDoc, getFirestore, increment, query, getDocs, collection, where, addDoc, doc, onSnapshot, setDoc, updateDoc, arrayUnion, arrayRemove }  from "firebase/firestore";
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,12 +22,12 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 const profilesCollection = collection(db, "profiles")
 
-<<<<<<< HEAD
-=======
 
-export const reqPicture = async (index) => { //generate random number on frontend, use function for 2 times
-  let profileRef = doc(db, "profiles", index)
-  const docSnap = await getDoc(profileRef);
-  return docSnap.data
+export const reqPicture = async (profileId) => { //generate random number on frontend, use function for 2 times
+  let profileRef = doc(db, 'profiles', profileId)
+  const docSnap = await getDoc(profileRef)
+
+  console.log(docSnap.data())
+
+  return docSnap.data()
 }
->>>>>>> c803318f8878b62efb67865cd92c455beea86010

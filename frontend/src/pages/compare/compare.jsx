@@ -1,23 +1,35 @@
 import "./compare.css";
 import { Header } from "../../components/header";
-import { useState } from "react";
-import "axios"
+import { useEffect, useState } from "react";
 import { reqPicture } from "../../firebase";
 
-export const Compare = async () => {
-    let rand1 = 1+ Math.random()*2
-    let rand2 = 1+ Math.random()*2
+export const Compare =  () => {
+    let rand1 = Math.floor(1+Math.random()*5)
+    let rand2 = Math.floor(1+Math.random()*5)
 
-    // let link1 = reqPicture("P" + rand1)
+    console.log("first", rand1)
+    console.log("second", rand2)
+
     const [link1, setLink1] = useState()
     const [link2, setLink2] = useState()
-    // let link2 = await reqPicture()
+
+    let generatePhotos = async (rand1, rand2) => {
+        let url1 = await reqPicture("P"+rand1)
+        let url2 = await reqPicture("P"+rand2)
+
+        setLink1(url1.URL)
+        setLink2(url2.URL)
+    }
+
+    useEffect(() => {
+        generatePhotos(rand1, rand2)
+    },[])
 
     console.log(link2)
 
-    const imageWin = (winner, loser) => {
+    // const imageWin = (winner, loser) => {
 
-    }
+    // }
     
   return (
     <div className="compare-wrapper">
@@ -28,13 +40,13 @@ export const Compare = async () => {
           <img
             className="photo1"
             alt="photo1"
-            src="https://d7hftxdivxxvm.cloudfront.net/?resize_to=fill&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F-VBWvHn1Skz8LVzmcrTD4w%252Fhellthumb800.jpg&width=1200&height=630&quality=80"
+            src={link1}
           />
 
           <span>OR</span>
           <img
             alt="photo2"
-            src="https://d7hftxdivxxvm.cloudfront.net/?resize_to=fill&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F-VBWvHn1Skz8LVzmcrTD4w%252Fhellthumb800.jpg&width=1200&height=630&quality=80"
+            src={link2}
           />
         </div>
       </div>
