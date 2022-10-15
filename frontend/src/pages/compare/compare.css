@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+span {
+    font-size: 36px;
+}
+
 img {
     height: 300px;
     width: 400px;
