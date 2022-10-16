@@ -1,0 +1,37 @@
+.text-holder{
+  height:80px;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+.upload {
+    font-family: sans-serif;
+    /* text-align: center; */
+    background-color: #f6f9fe;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.upload__image-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-item {
+  text-align: center; 
+  /* margin: 10px 0; */
+}
+.image-item__btn-wrapper {
+  /* display: flex;
+  flex-direction: column;
+  margin-left: 10px; */
+  text-align: center;
+}
+button {
+  height: 4rem;
+  text-align: center;
+}
+
+
+  
