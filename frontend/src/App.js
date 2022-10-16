@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path="/compare" element={<Compare />} />
+        <Route path="/" element={<Compare />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
 
       </Routes>
