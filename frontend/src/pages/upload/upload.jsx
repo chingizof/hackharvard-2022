@@ -36,7 +36,7 @@ export const Upload = () => {
               </button>
               {imageList.map((image, index) => (
                 <div key={index} className="image-item">
-                  <img src={image.data_url} alt="" width="100" />
+                  <img className="image" src={image.data_url} alt="" width="300" height="300" style={{borderRadius:"50%", background:"red"}}/>
                   <div className="image-item__btn-wrapper">
                     <button onClick={() => onImageUpdate(index)}>Update</button>
                     <button onClick={() => onImageRemove(index)}>Remove</button>

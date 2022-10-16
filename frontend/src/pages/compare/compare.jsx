@@ -15,20 +15,42 @@ export const Compare = () => {
     let url1 = await reqPicture("P" + rand1);
     let url2 = await reqPicture("P" + rand2);
 
+<<<<<<< HEAD
     setLink1(url1.URL);
     setLink2(url2.URL);
   };
+=======
+    let generatePhotos = async () => {
+        setRand1((Math.floor(1+Math.random()*5)))
+        setRand2((Math.floor(1+Math.random()*5)))
+
+        let url1 = await reqPicture("P"+rand1)
+        let url2 = await reqPicture("P"+rand2)
+>>>>>>> 97a4256544f707e8e4344a5b5b27819e52d67ac6
 
   useEffect(() => {
     generatePhotos();
   }, []);
 
+<<<<<<< HEAD
   const imageWin = async (winnerId, loserId) => {
     await updateRank("P" + winnerId, 1);
     await updateRank("P" + loserId, -1);
     await generatePhotos();
   };
 
+=======
+    useEffect(() => {
+        generatePhotos()
+    },[])
+
+    const imageWin = async (winnerId, loserId) => {
+        await generatePhotos()
+        await updateRank("P"+winnerId, 1)
+        await updateRank("P"+loserId, -1)
+    }
+    
+>>>>>>> 97a4256544f707e8e4344a5b5b27819e52d67ac6
   return (
     <div className="compare-wrapper">
       <Header />
